@@ -1,0 +1,9 @@
+.shop-list .best-cards{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shop-list .card-item{
+    margin:10px 0px;
+    flex: 0 0 calc(15% - 10px);
+    height:250px;
+}
