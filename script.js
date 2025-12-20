@@ -40,3 +40,30 @@ btnTabs.addEventListener("click", function(event){
     }
 })
 tabContent.innerHTML = arrayContents[defaultTab];
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nameEl = document.getElementById("name") || document.getElementById("c_name");
+        const emailEl = document.getElementById("email") || document.getElementById("c_email");
+        const messageEl = document.getElementById("message") || document.getElementById("c_message");
+
+        const nameValue = nameEl ? nameEl.value.trim() : "";
+        const emailValue = emailEl ? emailEl.value.trim() : "";
+        const messageValue = messageEl ? messageEl.value.trim() : "";
+
+        if (!nameValue || !emailValue) {
+            alert('Please enter your name and email.');
+            return;
+        }
+
+        alert(`Cảm ơn ${nameValue} đã liên hệ với chúng tôi!`);
+
+        contactForm.reset();
+    });
+} else {
+    console.warn('contactForm element not found on this page.');
+}
