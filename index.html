@@ -8,6 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dau graduation project</title>
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "XD62okOn48us-Dnhn",
+            });
+        })();
+    </script>
 </head>
 <body>
     <header class="nav">
@@ -58,7 +68,7 @@
                 <h2>Best sellers</h2>
             </div>
             <div class="best-cards">
-                <div class="card-item">
+                <!-- <div class="card-item">
                     <img class="main-img" src="./best4.png" alt="">
                     <p class="card-item-title">Daisy</p>
                     <div class="card-item-bot">
@@ -104,7 +114,7 @@
                             <a href="#">Add to cart</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <section class="common-sect lastest-post">
@@ -302,14 +312,14 @@
                 <section id="contact-section">
                     <h2>Liên hệ với chúng tôi</h2>
                     <form id="contactForm">
-                        <label for="c_name">Tên:</label>
-                        <input type="text" id="name" name="name" placeholder="Nhập tên bạn vào đây" required>
+                        <label for="formName">Tên:</label>
+                        <input type="text" id="formName" name="name" placeholder="Nhập tên bạn vào đây" required>
 
-                        <label for="c_email">Email:</label>
-                        <input type="email" id="email" name="email"placeholder="Nhập email bạn vào đây" required>
+                        <label for="formEmail">Email:</label>
+                        <input type="email" id="formEmail" name="email"placeholder="Nhập email bạn vào đây" required>
 
-                        <label for="c_message">Thông điệp:</label>
-                        <textarea id="message" name="message" placeholder="Nhập thông điệp bạn muốn gửi vào đây"></textarea>
+                        <label for="formMessage">Thông điệp:</label>
+                        <textarea id="formMessage" name="formMessage" placeholder="Nhập thông điệp bạn muốn gửi vào đây"></textarea>
 
                         <button type="submit">Gửi đi</button>
                     </form>
@@ -351,6 +361,6 @@
         </div>
         
     </footer>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+import { listBestSeller } from "./bestSeller.list.js";
+
 let defaultTab = 1;
 let arrayContents = [
 
@@ -24,6 +26,24 @@ let arrayContents = [
         </div>
     ` 
 ];
+
+function sendEmail(formName, formEmail, formMessage) {
+    let templateParams = {
+        name: formName,
+        message: formMessage,
+        email: formEmail
+    };
+
+    emailjs.send('service_kcgyado', 'template_1tk7ghp', templateParams).then(
+        (response) => {
+            console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+            console.log('FAILED...', error);
+        },
+    );
+}
+
 let btnTabs = document.querySelector(".btn-tabs")
 let tabContent = document.querySelector(".tab-content")
 btnTabs.addEventListener("click", function(event){
@@ -47,13 +67,13 @@ if (contactForm) {
     contactForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        const nameEl = document.getElementById("name") || document.getElementById("c_name");
-        const emailEl = document.getElementById("email") || document.getElementById("c_email");
-        const messageEl = document.getElementById("message") || document.getElementById("c_message");
+        const nameEl = document.querySelector("#formName");
+        const emailEl = document.querySelector("#formEmail");
+        const messageEl = document.querySelector("#formMessage");
 
-        const nameValue = nameEl ? nameEl.value.trim() : "";
-        const emailValue = emailEl ? emailEl.value.trim() : "";
-        const messageValue = messageEl ? messageEl.value.trim() : "";
+        const nameValue = nameEl.value.trim();
+        const emailValue = emailEl.value.trim();
+        const messageValue = messageEl.value.trim();
 
         if (!nameValue || !emailValue) {
             alert('Please enter your name and email.');
@@ -61,9 +81,43 @@ if (contactForm) {
         }
 
         alert(`Cảm ơn ${nameValue} đã liên hệ với chúng tôi!`);
+        sendEmail(nameValue, emailValue, messageValue);
 
         contactForm.reset();
     });
 } else {
     console.warn('contactForm element not found on this page.');
 }
+
+// Render best seller cards
+console.log(">>> listBestSeller 🌞", listBestSeller)
+let bestCards = document.querySelector(".best-cards");
+
+let bestCardsContent = '';
+listBestSeller.forEach(function(item, index){
+    let name = item.name;
+    let price = item.price;
+    let id = item.id;
+
+    let card = `<div class="card-item" item-id=${id}>
+        <img class="main-img" src="./best4.png" alt="">
+        <p class="card-item-title">${name}</p>
+        <div class="card-item-bot">
+            <p>${price} đ</p>
+            <div>
+                <img src="./cart.svg" alt="">
+                <a href="#">Add to cart</a>
+            </div>
+        </div>
+    </div>` 
+    console.log(card)
+
+    bestCardsContent = bestCardsContent + card
+})
+
+bestCards.innerHTML = bestCardsContent
+
+
+
+
+
