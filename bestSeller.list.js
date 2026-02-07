@@ -9,7 +9,7 @@ export let listBestSeller = [
         id: 2,
         name: 'Sunflower',
         price: 99000,
-        img: 'best1.png'
+        img: 'best2.png'
     },
     {
         id: 3,
@@ -20,6 +20,18 @@ export let listBestSeller = [
     {
         id: 4,
         name: 'Periwinkle',
+        price: 135000,
+        img: 'best4.png'
+    },
+    {
+        id: 5,
+        name: 'Periwinkle 2',
+        price: 135000,
+        img: 'best4.png'
+    },
+    {
+        id: 6,
+        name: 'Periwinkle 3',
         price: 135000,
         img: 'best4.png'
     },

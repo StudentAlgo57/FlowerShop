@@ -1,4 +1,5 @@
 import { listBestSeller } from "./bestSeller.list.js";
+import {listLatestPost} from "./lastestPost.list.js";
 
 let defaultTab = 1;
 let arrayContents = [
@@ -100,7 +101,7 @@ listBestSeller.forEach(function(item, index){
     let id = item.id;
 
     let card = `<div class="card-item" item-id=${id}>
-        <img class="main-img" src="./best4.png" alt="">
+        <img class="main-img" src="./${item.img}" alt="">
         <p class="card-item-title">${name}</p>
         <div class="card-item-bot">
             <p>${price} đ</p>
@@ -116,6 +117,47 @@ listBestSeller.forEach(function(item, index){
 })
 
 bestCards.innerHTML = bestCardsContent
+
+// Render latest post
+let postsEle = document.querySelector(".posts");
+let lastestPostCard = "";
+listLatestPost.forEach(function(item, index) {
+    lastestPostCard += `
+        <div class="post-item">
+            <div class="post-item-head">
+                <div class="post-avatar">
+                    <img src="./${item.avatar}" alt="">
+                    <span>${item.name}</span>
+                </div>
+                <div class="post-date">${item.date}</div>
+            </div>
+            <div class="post-img">
+                <img src="./${item.img}" alt="">
+            </div>
+            <div class="post-info">
+                <div class="post-tittle">${item.title}</div>
+                <div class="post-des">${item.content}</div>
+            </div>
+            <div class="post-item-footer">
+                <div class="post-react">
+                    <div class="post-liked">
+                        <img src="./heart.svg" alt="">
+                        <span>${item.likes}</span>
+                    </div>
+                    <div class="post-view">
+                        <img src="./eye.svg" alt="">
+                        <span>${item.views}</span> 
+                    </div>
+                </div>
+                <a href="">Read more</a>
+            </div>
+        </div>
+    `
+})
+postsEle.innerHTML = lastestPostCard
+
+
+
 
 
 
