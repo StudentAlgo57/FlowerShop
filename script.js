@@ -1,5 +1,6 @@
 import { listBestSeller } from "./bestSeller.list.js";
-import {listLatestPost} from "./lastestPost.list.js";
+import { listLatestPost } from "./lastestPost.list.js";
+import { shopListItem } from "./shop.list.js";
 
 let defaultTab = 1;
 let arrayContents = [
@@ -91,20 +92,22 @@ if (contactForm) {
 }
 
 // Render best seller cards
-console.log(">>> listBestSeller 🌞", listBestSeller)
 let bestCards = document.querySelector(".best-cards");
-
+const bestSellerItems = listBestSeller.map((bestId) => {
+    let item = shopListItem.find(function(shopItem){
+        return shopItem.id === bestId;
+    });
+    return item;
+})
+console.log(bestSellerItems)
 let bestCardsContent = '';
-listBestSeller.forEach(function(item, index){
-    let name = item.name;
-    let price = item.price;
-    let id = item.id;
+bestSellerItems.forEach(function(item, index){
 
-    let card = `<div class="card-item" item-id=${id}>
-        <img class="main-img" src="./${item.img}" alt="">
-        <p class="card-item-title">${name}</p>
+    let card = `<div class="card-item" product-code=${item.id}>
+        <img class="main-img" src="${item.img}" alt="">
+        <p class="card-item-title">${item.tittle}</p>
         <div class="card-item-bot">
-            <p>${price} đ</p>
+            <p>${item.price} đ</p>
             <div>
                 <img src="./cart.svg" alt="">
                 <a href="#">Add to cart</a>
@@ -155,11 +158,5 @@ listLatestPost.forEach(function(item, index) {
     `
 })
 postsEle.innerHTML = lastestPostCard
-
-
-
-
-
-
 
 

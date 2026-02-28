@@ -1,9 +1,26 @@
 .shop-list .shop-best-cards{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
-.shop-list .card-item{
-    margin:10px 0px;
-    flex: 0 0 calc(15% - 10px);
-    /* height:250px; */
+.shop-list .shop-card-item{
+    width: 22%;
+    gap: 10px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.shop-card-item .main-img {
+    width: 100%;
+    height: 180px;
+}
+
+.card-item-bot {
+    padding: 0px 10px 10px 10px;
+}
+
+.card-item-title {
+    padding: 10px;
 }

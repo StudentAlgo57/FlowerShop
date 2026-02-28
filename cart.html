@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giỏ Hàng Hoa</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f4f4f4;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 40px auto;
+    }
+
+    .back-home {
+        display: inline-block;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #e91e63;
+        font-weight: bold;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #e91e63;
+    }
+
+    .cart {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .cart-items {
+        flex: 2;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    .cart-item:last-child {
+        border-bottom: none;
+    }
+
+    .cart-item img {
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .item-info {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .price {
+        color: #e91e63;
+        font-weight: bold;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+    }
+
+    .quantity-control button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background: #e91e63;
+        color: white;
+        cursor: pointer;
+    }
+
+    .quantity-control input {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ccc;
+        height: 30px;
+    }
+
+    .summary {
+        flex: 1;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        height: fit-content;
+    }
+
+    .summary h2 {
+        margin-bottom: 15px;
+    }
+
+    .summary p {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    .total {
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button.order-btn {
+        width: 100%;
+        padding: 12px;
+        background: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button.order-btn:hover {
+        background: #c2185b;
+    }
+
+    @media (max-width: 768px) {
+        .cart {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/index.html" class="back-home">← Back to Home</a>
+
+<h1>Giỏ Hàng Hoa 🌸</h1>
+
+<div class="cart">
+
+<div class="cart-items">
+
+<div class="cart-item" data-price="500000">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946">
+    <div class="item-info">
+        <h3>Bó Hoa Hồng Đỏ</h3>
+        <p class="price">500.000đ</p>
+        <div class="quantity-control">
+            <button class="minus">-</button>
+            <input type="text" value="1" readonly>
+            <button class="plus">+</button>
+        </div>
+    </div>
+</div>
+
+<div class="cart-item" data-price="400000">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+    <div class="item-info">
+        <h3>Bó Hoa Hướng Dương</h3>
+        <p class="price">400.000đ</p>
+        <div class="quantity-control">
+            <button class="minus">-</button>
+            <input type="text" value="1" readonly>
+            <button class="plus">+</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="summary">
+<h2>Tóm Tắt Đơn Hàng</h2>
+
+<p><span>Tạm tính</span> <span id="subtotal">900.000đ</span></p>
+<p><span>Phí vận chuyển</span> <span>30.000đ</span></p>
+<p class="total"><span>Tổng cộng</span> <span id="total">930.000đ</span></p>
+
+<form>
+    <input type="text" placeholder="Họ và tên" required>
+    <input type="tel" placeholder="Số điện thoại" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Địa chỉ giao hàng" rows="3" required></textarea>
+    <button type="submit" class="order-btn">Đặt Hàng</button>
+</form>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
